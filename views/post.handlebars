@@ -1,0 +1,17 @@
+{{#if loggedIn}}
+<div class="card">
+    <h3 class="card-header">{{post.title}}</h3>
+    <div class="card-body">
+    <p>{{post.text}}</p>
+    <h5>posted by {{post.user_id}}</h5>
+    <h6>on {{format_date post.createdAt}} at {{format_time post.createdAt}} </h6>
+    </div>
+</div>
+{{#each post.comment as |comment|}}
+<div class="comments">
+  {{comment.text}}
+</div>
+{{/each}}
+{{else}}
+<a href="/login">You must login first to view this page</a>
+{{/if}}
